@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ImagesPage } from "./pages/ImagesPage";
 import { LikedImagesPage } from "./pages/LikedImagesPage";
