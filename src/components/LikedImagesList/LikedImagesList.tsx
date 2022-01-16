@@ -5,10 +5,6 @@ import { ImageCard } from "../ImageCard/ImageCard";
 
 interface LikedImagesListProps {}
 
-interface RootState {
-  image: APODImage;
-}
-
 export const LikedImagesList: React.FC<LikedImagesListProps> = () => {
   const [likedImages, setLikedImages] = useState<APODImage[]>([]);
 
