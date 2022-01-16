@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { ImagesPage } from "./pages/ImagesPage";
 import { LikedImagesPage } from "./pages/LikedImagesPage";
+import { useDispatch } from "react-redux";
+import { imagesActions } from "./store/index";
 
 function App() {
+  const dispatch = useDispatch();
+
+  // Check for exsiting likes in localStorage, writes to store if found
+  useEffect(() => {
+    let localStorageLikedImages;
+    if (localStorage.getItem("likedImages") !== null) {
+      localStorageLikedImages = JSON.parse(
+        localStorage.getItem("likedImages") || "{}"
+      );
+    }
+
+    if (!localStorageLikedImages || localStorageLikedImages.length === 0) {
+      console.log("no liked images found...");
+    } else {
+      console.log("found liked images");
+      dispatch(
+        imagesActions.setLikedImages({
+          localStorageLikedImages: localStorageLikedImages,
+        })
+      );
+    }
+  }, [dispatch]);
   return (
     <div className="App">
       <Routes>
