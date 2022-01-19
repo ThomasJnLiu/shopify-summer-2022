@@ -51,7 +51,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({
     navigator.clipboard.writeText(window.location.href + image.date);
     toast({
       title: "Link copied!",
-      description: "The link has been copied to your clipboard.",
+      description: "The image link has been copied to your clipboard.",
       status: "info",
       duration: 3000,
       variant: "subtle",
