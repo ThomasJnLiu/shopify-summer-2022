@@ -26,7 +26,9 @@ export const LikedImagesList: React.FC<LikedImagesListProps> = () => {
         </div>
       ) : (
         <div>
-          <p>Go to the home page and like some images!</p>
+          <p style={{ color: "#646464" }}>
+            No liked images, go to the home page and like some images!
+          </p>
         </div>
       )}
     </>
