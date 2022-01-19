@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Flex,
-  Heading,
-  Stack,
-  Text,
-  useDisclosure,
-  Box,
-  Spacer,
-  HStack,
-  Container,
-} from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { Flex, Heading, HStack, Container } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { ProfileMajor, SearchMajor } from "@shopify/polaris-icons";
 import "./Header.scss";

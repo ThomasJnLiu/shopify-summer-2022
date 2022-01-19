@@ -1,4 +1,3 @@
-import { ImageDetailCard } from "../components/ImageDetailCard/ImageDetailCard";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import APODImage from "../models/APODImage";

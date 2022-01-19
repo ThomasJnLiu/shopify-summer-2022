@@ -1,11 +1,4 @@
-import {
-  Box,
-  Skeleton,
-  SkeletonText,
-  SkeletonCircle,
-  VStack,
-  Heading,
-} from "@chakra-ui/react";
+import { Box, SkeletonText } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import APODImage from "../../models/APODImage";
 import { ImageCard } from "../ImageCard/ImageCard";
