@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import APODImage from "../../models/APODImage";
 import { ImageCard } from "../ImageCard/ImageCard";
-
 interface LikedImagesListProps {}
 
 export const LikedImagesList: React.FC<LikedImagesListProps> = () => {
@@ -12,13 +11,15 @@ export const LikedImagesList: React.FC<LikedImagesListProps> = () => {
     state.images.likedImages;
   const storeImages = useSelector(selectImages);
   console.log(storeImages);
+
   useEffect(() => {
     setLikedImages(storeImages);
   }, [storeImages]);
+
   return (
     <>
       {likedImages.length > 0 ? (
-        <div>
+        <div className="images-list">
           {likedImages.map((image) => {
             return <ImageCard image={image} />;
           })}

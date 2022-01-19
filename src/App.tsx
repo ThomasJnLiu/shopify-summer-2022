@@ -4,6 +4,10 @@ import { ImagesPage } from "./pages/ImagesPage";
 import { LikedImagesPage } from "./pages/LikedImagesPage";
 import { useDispatch } from "react-redux";
 import { imagesActions } from "./store/index";
+import { Container } from "@chakra-ui/react";
+import "./App.scss";
+import { Header } from "./components/Header/Header";
+import { ImagesDetailPage } from "./pages/ImagesDetailPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,12 +32,17 @@ function App() {
       );
     }
   }, [dispatch]);
+
   return (
     <div className="App">
-      <Routes>
-        <Route path="" element={<ImagesPage />} />
-        <Route path="liked-images" element={<LikedImagesPage />} />
-      </Routes>
+      <Header />
+      <Container maxW="container.sm">
+        <Routes>
+          <Route path="" element={<ImagesPage />} />
+          <Route path="liked-images" element={<LikedImagesPage />} />
+          <Route path=":imageDate" element={<ImagesDetailPage />} />
+        </Routes>
+      </Container>
     </div>
   );
 }
