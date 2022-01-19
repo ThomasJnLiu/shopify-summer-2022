@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import APODImage from "../../models/APODImage";
 import { imagesActions } from "../../store/index";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Heading, Image, Text, Link } from "@chakra-ui/react";
+import { Box, Heading, Image, Text, Link, useToast } from "@chakra-ui/react";
 import "./ImageCard.scss";
 import { HeartMajor, ShareMinor } from "@shopify/polaris-icons";
 
@@ -18,6 +18,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   ImageCard.defaultProps = {
     showFullExplanation: false,
   };
+  const toast = useToast();
   const dispatch = useDispatch();
   const [isLiked, setIsLiked] = useState(false);
   const handleToggle = () => setIsLiked((active) => !active);
@@ -48,6 +49,17 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   };
   const shareHandler = () => {
     navigator.clipboard.writeText(window.location.href + image.date);
+    toast({
+      title: "Link copied!",
+      description: "The link has been copied to your clipboard.",
+      status: "info",
+      duration: 3000,
+      variant: "subtle",
+      isClosable: true,
+      containerStyle: {
+        color: "#5569CB",
+      },
+    });
   };
   return (
     <Box className="image-card" mt={4}>
