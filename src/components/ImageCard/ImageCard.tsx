@@ -27,10 +27,22 @@ export const ImageCard: React.FC<ImageCardProps> = ({
 
   const buttonStyle = isLiked ? "" : "not-liked";
 
+  const sendLikeToast = (wasLiked: Boolean) => {
+    navigator.clipboard.writeText(window.location.href + image.date);
+    toast({
+      title: `Image ${wasLiked ? "unliked" : "liked"}!`,
+      description: `${image.title} has been ${wasLiked ? "unliked" : "liked"}`,
+      status: `${wasLiked ? "warning" : "success"}`,
+      duration: 3000,
+      variant: "subtle",
+      isClosable: true,
+    });
+  };
   const likedImages = useSelector(
     (state: { images: { likedImages: APODImage[] } }) =>
       state.images.likedImages
   );
+
   useEffect(() => {
     if (likedImages.some((storedImage) => storedImage.date === date)) {
       setIsLiked(true);
@@ -40,11 +52,11 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   const likeHandler = () => {
     handleToggle();
     if (isLiked) {
+      sendLikeToast(isLiked);
       dispatch(imagesActions.removeLikedImage({ image: image }));
-      console.log("remove " + image.title + " from favourites");
     } else {
+      sendLikeToast(isLiked);
       dispatch(imagesActions.addLikedImage({ image: image }));
-      console.log("add " + image.title + " to favourites");
     }
   };
   const shareHandler = () => {
@@ -55,14 +67,10 @@ export const ImageCard: React.FC<ImageCardProps> = ({
       status: "info",
       duration: 3000,
       variant: "subtle",
-      isClosable: true,
-      containerStyle: {
-        color: "#5569CB",
-      },
     });
   };
   return (
-    <Box className="image-card" mt={4}>
+    <Box className="image-card" mt={4} boxShadow="xl">
       <Link href={`/${image.date}`}>
         <Image src={image.url} alt={image.title} />
       </Link>
