@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import APODImage from "../models/APODImage";
 import { ImageCard } from "../components/ImageCard/ImageCard";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Box, SkeletonText } from "@chakra-ui/react";
 
 interface ImagesDetailPageProps {}
 
@@ -35,7 +35,12 @@ export const ImagesDetailPage: React.FC<ImagesDetailPageProps> = () => {
           <ImageCard image={imageDetail} showFullExplanation={true} />
         </>
       ) : (
-        <></>
+        <>
+          {" "}
+          <Box padding="6" boxShadow="lg" bg="white" mb={4} mt={4}>
+            <SkeletonText mt="4" noOfLines={10} spacing="4" />
+          </Box>
+        </>
       )}
     </>
   );
