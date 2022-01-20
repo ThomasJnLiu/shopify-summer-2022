@@ -1,12 +1,13 @@
 # 🚀 Spacestagram: Image Sharing From the Final Frontier
 
-This app was created for Shopify's Summer 2022 Front End Developer Intern Design Challenge.
+This app was created for Shopify's Summer 2022 Front End Developer Intern Challenge.
 
 - [Access the Deployment](https://thomasjnl-shopify-summer-2022.netlify.app/)
 - [Challenge Specifications](https://docs.google.com/document/d/13zXpyrC2yGxoLXKktxw2VJG2Jw8SdUfliLM-bYQLjqE/edit?usp=sharing)
 
 ## Table of Contents
 
+- [Setup](#setup)
 - [Tools Used](#tools-used)
 - [Testing](#testing)
 - [Specified Features](#specified-features)
@@ -19,6 +20,14 @@ This app was created for Shopify's Summer 2022 Front End Developer Intern Design
   - [Saving Likes Between Reloads](#saving-likes-between-reloads)
   - [User Feedback using Toasts](#user-feedback-using-toasts)
 - [Reflections](#reflections)
+
+## Setup
+
+You can clone this repository by running:
+
+```
+git clone https://github.com/ThomasJnLiu/shopify-summer-2022.git
+```
 
 ## Tools Used
 - React.js 
