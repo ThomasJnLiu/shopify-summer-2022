@@ -70,7 +70,7 @@ export const ImageCard: React.FC<ImageCardProps> = ({
     });
   };
   return (
-    <Box className="image-card" mt={4} boxShadow="xl">
+    <Box className="image-card" mb={4} mt={2} boxShadow="xl">
       <Link href={`/${image.date}`}>
         <Image src={image.url} alt={image.title} />
       </Link>
