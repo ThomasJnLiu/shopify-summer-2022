@@ -23,7 +23,10 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   const [isLiked, setIsLiked] = useState(false);
   const handleToggle = () => setIsLiked((active) => !active);
   const { date } = image;
-  const shortenedDescription = image.explanation.slice(0, 150) + "...";
+  let shortenedDescription;
+  if (image.explanation) {
+    shortenedDescription = image.explanation.slice(0, 150) + "...";
+  }
 
   const buttonStyle = isLiked ? "" : "not-liked";
 
@@ -71,12 +74,12 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   };
   return (
     <Box className="image-card" mb={4} mt={2} boxShadow="xl">
-      <Link href={`/${image.date}`}>
+      <Link href={`/images/${image.date}`}>
         <Image src={image.url} alt={image.title} />
       </Link>
       <Box p={5}>
         <Heading color="#5569CB" mt={1} mb={4}>
-          <Link href={`/${image.date}`}>{image.title}</Link>
+          <Link href={`/images/${image.date}`}>{image.title}</Link>
         </Heading>
         <Box className="image-card-body">
           <Text fontWeight={"bold"}>{image.date}</Text>

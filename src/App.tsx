@@ -8,6 +8,8 @@ import { Container } from "@chakra-ui/react";
 import "./App.scss";
 import { Header } from "./components/Header/Header";
 import { ImagesDetailPage } from "./pages/ImagesDetailPage";
+import { SearchPage } from "./pages/SearchPage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -38,9 +40,11 @@ function App() {
       <Header />
       <Container maxW="container.sm">
         <Routes>
-          <Route path="" element={<ImagesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/" element={<ImagesPage />} />2
           <Route path="liked-images" element={<LikedImagesPage />} />
-          <Route path=":imageDate" element={<ImagesDetailPage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route path="/images/:imageDate" element={<ImagesDetailPage />} />
         </Routes>
       </Container>
     </div>

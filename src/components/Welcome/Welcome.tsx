@@ -1,12 +1,11 @@
 import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
-import "./Sidebar.scss";
 import { Link } from "@chakra-ui/react";
-interface SidebarProps {}
+interface WelcomeProps {}
 
-export const Sidebar: React.FC<SidebarProps> = () => {
+export const Welcome: React.FC<WelcomeProps> = () => {
   return (
-    <Box className="sidebar" mt={10}>
+    <Box mt={10}>
       <Heading size="md" mb={4} fontSize={"2xl"} fontWeight={500}>
         Welcome!
       </Heading>
@@ -18,7 +17,6 @@ export const Sidebar: React.FC<SidebarProps> = () => {
         Users can like and share posts, all your likes are saved to local
         storage so you can access them whenever you come back!
       </Text>
-
       <Text>
         Created by Thomas Liu, access the repo{" "}
         <Link

@@ -29,14 +29,29 @@ export const ImagesDetailPage: React.FC<ImagesDetailPageProps> = () => {
     <>
       {imageDetail ? (
         <>
-          <Heading mt={10} mb={5} fontWeight={500} fontSize={"xl"}>
-            {imageDetail?.title}
-          </Heading>
-          <ImageCard image={imageDetail} showFullExplanation={true} />
+          {imageDetail.title ? (
+            <>
+              <Heading mt={10} mb={5} fontWeight={500} fontSize={"xl"}>
+                {imageDetail.title}
+              </Heading>
+              <ImageCard image={imageDetail} showFullExplanation={true} />
+            </>
+          ) : (
+            <>
+              <Heading
+                size="md"
+                mb={4}
+                fontSize={"2xl"}
+                fontWeight={500}
+                mt={10}
+              >
+                Image Not Found
+              </Heading>
+            </>
+          )}
         </>
       ) : (
         <>
-          {" "}
           <Box padding="6" boxShadow="lg" bg="white" mb={4} mt={4}>
             <SkeletonText mt="4" noOfLines={10} spacing="4" />
           </Box>

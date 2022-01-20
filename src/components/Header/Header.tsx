@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = () => {
             <Link to="/">Spacestagram</Link>
           </Heading>
           <HStack mr={4} spacing="24px">
-            <Link to="liked-images">
+            <Link to="search">
               <SearchMajor />
             </Link>
             <Link to="liked-images">
