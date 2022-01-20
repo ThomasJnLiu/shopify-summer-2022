@@ -31,7 +31,6 @@ export const ImageCard: React.FC<ImageCardProps> = ({
   const buttonStyle = isLiked ? "" : "not-liked";
 
   const sendLikeToast = (wasLiked: Boolean) => {
-    navigator.clipboard.writeText(window.location.href + image.date);
     toast({
       title: `Image ${wasLiked ? "unliked" : "liked"}!`,
       description: `${image.title} has been ${wasLiked ? "unliked" : "liked"}`,
@@ -63,7 +62,10 @@ export const ImageCard: React.FC<ImageCardProps> = ({
     }
   };
   const shareHandler = () => {
-    navigator.clipboard.writeText(window.location.href + image.date);
+    const shareUrl = showFullExplanation
+      ? window.location.href
+      : window.location.origin + "/images/" + image.date;
+    navigator.clipboard.writeText(shareUrl);
     toast({
       title: "Link copied!",
       description: "The image link has been copied to your clipboard.",
