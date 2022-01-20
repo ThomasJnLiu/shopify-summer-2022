@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import APODImage from "../../models/APODImage";
 import { ImageCard } from "../ImageCard/ImageCard";
 import NoLikesImage from "../../img/no-likes.png";
-import { Center, Heading, Image, Text } from "@chakra-ui/react";
+import { Center, Heading, Image } from "@chakra-ui/react";
 
 interface LikedImagesListProps {}
 
